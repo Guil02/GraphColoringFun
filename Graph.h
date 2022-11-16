@@ -19,7 +19,9 @@ public:
     bool hasEdge(int u, int v);
 
     std::vector<std::vector<int>> getAdjacent() const;
-    
+
+    std::vector<int> getAdjacent(int u);
+
     void initializeAdjacencyList();
 
 };

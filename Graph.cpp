@@ -6,7 +6,7 @@
 
 void Graph::addEdge(int u, int v) {
     if (u >= amount || v >= amount) {
-        throw std::invalid_argument("received out of bound arguments");
+        throw std::invalid_argument("received an out of bound argument");
     }
     adjacent[u].emplace_back(v);
     adjacent[v].emplace_back(u);
@@ -33,4 +33,11 @@ bool Graph::hasEdge(int u, int v) {
 
 std::vector<std::vector<int>> Graph::getAdjacent() const {
     return adjacent;
+}
+
+std::vector<int> Graph::getAdjacent(int u) {
+    if (u >= amount) {
+        throw std::invalid_argument("received an out of bound argument");
+    }
+    return adjacent[u];
 }
