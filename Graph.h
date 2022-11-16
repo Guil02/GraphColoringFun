@@ -9,9 +9,19 @@
 
 class Graph {
 public:
-    std::vector<int>
+    explicit Graph(int amount);
 
-    void addEdge(std::vector<int> adj[], int u, int v);
+    int amount;
+    std::vector<std::vector<int>> adjacent;
+
+    void addEdge(int u, int v);
+
+    bool hasEdge(int u, int v);
+
+    std::vector<std::vector<int>> getAdjacent() const;
+
+
+    void initializeAdjacencyList();
 
 };
 
