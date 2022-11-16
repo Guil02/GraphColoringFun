@@ -15,6 +15,7 @@ void Graph::addEdge(int u, int v) {
 Graph::Graph(int amount) {
     this->amount = amount;
     initializeAdjacencyList();
+    initializeColorVector();
 }
 
 void Graph::initializeAdjacencyList() {
@@ -40,4 +41,14 @@ std::vector<int> Graph::getAdjacent(int u) {
         throw std::invalid_argument("received an out of bound argument");
     }
     return adjacent[u];
+}
+
+void Graph::initializeColorVector() {
+    for (int i = 0; i < amount; ++i) {
+        colors.emplace_back(0);
+    }
+}
+
+void Graph::setColor(int u, int color) {
+    colors.at(u) = color;
 }

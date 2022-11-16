@@ -3,4 +3,4 @@ project(GraphColoring)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(GraphColoring main.cpp Graph.cpp Graph.h)
+add_executable(GraphColoring main.cpp Graph.cpp Graph.h Node.cpp Node.h)

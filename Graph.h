@@ -13,6 +13,7 @@ public:
 
     int amount;
     std::vector<std::vector<int>> adjacent;
+    std::vector<int> colors;
 
     void addEdge(int u, int v);
 
@@ -24,6 +25,9 @@ public:
 
     void initializeAdjacencyList();
 
+    void initializeColorVector();
+
+    void setColor(int u, int color);
 };
 
 
