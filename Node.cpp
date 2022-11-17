@@ -4,15 +4,15 @@
 
 #include "Node.h"
 
-Node::Node() {
-    id = counter++;
+Node::Node(int id) {
+    this->id = id;
 }
 
 bool operator==(const Node &lhs, const Node &rhs) {
     return lhs.id == rhs.id;
 }
 
-void Node::addEdge(Node n) {
+void Node::addEdge(const Node &n) {
     adjacent.emplace_back(n);
 }
 
@@ -35,6 +35,15 @@ void Node::setColor(int c) {
 
 void Node::removeColor() {
     Node::color = 0;
+}
+
+void Node::removeEdge(int u) {
+    adjacent.erase(std::remove_if(adjacent.begin(), adjacent.end(),
+                                  [&u](const Node &a) { return u == a.getId(); }), adjacent.end());
+}
+
+int Node::getId() const {
+    return id;
 }
 
 

@@ -4,51 +4,23 @@
 
 #include "Graph.h"
 
+Graph::Graph() = default;
+
+Graph::Graph(int nodes) {
+    for (int i = 0; i < nodes; ++i) {
+        this->nodes.emplace_back(Node(i));
+    }
+    counter = nodes;
+}
+
+void Graph::addNode() {
+    nodes.emplace_back(Node(counter++));
+}
+
 void Graph::addEdge(int u, int v) {
-    if (u >= amount || v >= amount) {
-        throw std::invalid_argument("received an out of bound argument");
-    }
-    adjacent[u].emplace_back(v);
-    adjacent[v].emplace_back(u);
+
 }
 
-Graph::Graph(int amount) {
-    this->amount = amount;
-    initializeAdjacencyList();
-    initializeColorVector();
-}
-
-void Graph::initializeAdjacencyList() {
-    for (int i = 0; i < amount; ++i) {
-        adjacent.emplace_back(std::vector<int>());
-    }
-}
-
-bool Graph::hasEdge(int u, int v) {
-    if (std::count(adjacent[u].begin(), adjacent[u].end(), v)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-std::vector<std::vector<int>> Graph::getAdjacent() const {
-    return adjacent;
-}
-
-std::vector<int> Graph::getAdjacent(int u) {
-    if (u >= amount) {
-        throw std::invalid_argument("received an out of bound argument");
-    }
-    return adjacent[u];
-}
-
-void Graph::initializeColorVector() {
-    for (int i = 0; i < amount; ++i) {
-        colors.emplace_back(0);
-    }
-}
-
-void Graph::setColor(int u, int color) {
-    colors.at(u) = color;
+bool Graph::containsNode(int id) {
+    return std::find_if(nodes.begin(), nodes.end(), [&id](const Node& a) { return id == a.id; }) != nodes.end();
 }

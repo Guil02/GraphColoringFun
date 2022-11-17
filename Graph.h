@@ -6,28 +6,25 @@
 #define GRAPHCOLORING_GRAPH_H
 
 #include <vector>
+#include "Node.h"
+#include "Edge.h"
 
 class Graph {
 public:
-    explicit Graph(int amount);
+    std::vector<Node> nodes;
+    std::vector<Edge> edges;
+    int counter;
 
-    int amount;
-    std::vector<std::vector<int>> adjacent;
-    std::vector<int> colors;
+    Graph();
+
+    explicit Graph(int nodes);
+
+    void addNode();
 
     void addEdge(int u, int v);
 
-    bool hasEdge(int u, int v);
-
-    std::vector<std::vector<int>> getAdjacent() const;
-
-    std::vector<int> getAdjacent(int u);
-
-    void initializeAdjacencyList();
-
-    void initializeColorVector();
-
-    void setColor(int u, int color);
+    bool containsNode(int id);
+    bool containsNode(Node n);
 };
 
 
