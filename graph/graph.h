@@ -42,6 +42,8 @@ public:
     bool hasEdge(edge e);
 
     std::vector<int> getColoring();
+
+    void print();
 };
 
 

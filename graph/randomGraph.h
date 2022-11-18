@@ -11,7 +11,7 @@
 class randomGraph {
 
 public:
-    static graph generate(int nodes, int edgeProbability);
+    static graph generate(int nodes, double edgeProbability);
 };
 
 

@@ -3,6 +3,7 @@
 //
 
 #include "graph.h"
+#include "iostream"
 
 graph::graph() {
     counter = 0;
@@ -96,6 +97,18 @@ std::vector<int> graph::getColoring() {
         coloring.emplace_back(n.color);
     }
     return coloring;
+}
+
+void graph::print() {
+    for (int i = 0; i < nodes.size(); ++i) {
+        std::cout << "node " << i << ": ";
+        node n = nodes[i];
+        for (int j = 0; j < n.adjacent.size(); ++j) {
+            std::cout << n.adjacent[j].get().getId() << ", ";
+        }
+        std::cout << "\n";
+    }
+
 }
 
 

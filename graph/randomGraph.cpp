@@ -5,7 +5,7 @@
 #include "randomGraph.h"
 #include "random"
 
-graph randomGraph::generate(int nodes, int edgeProbability) {
+graph randomGraph::generate(int nodes, double edgeProbability) {
     graph g = graph(nodes);
     std::random_device rd;
     std::mt19937 mt(rd());
