@@ -10,6 +10,7 @@ graph::graph() {
 }
 
 graph::graph(int nodes) {
+    // initialize a graph with a given amount of nodes
     for (int i = 0; i < nodes; ++i) {
         this->nodes.emplace_back(node(i));
     }
@@ -17,23 +18,30 @@ graph::graph(int nodes) {
 }
 
 void graph::addNode() {
+    // add node to the graph
     nodes.emplace_back(node(counter++));
 }
 
 void graph::removeNode(int id) {
+    // search if the node exist in the vector then remove it.
     nodes.erase(std::remove_if(nodes.begin(), nodes.end(), [&id](const node &a) { return a.id == id; }),
                 nodes.end());
 }
 
 void graph::removeNode(node n) {
+    // search if the node exist in the vector move it to the end then remove everything from the position found to the end.
     nodes.erase(std::remove_if(nodes.begin(), nodes.end(), [&n](const node &a) { return a == n; }),
                 nodes.end());
 }
 
 void graph::addEdge(int u, int v) {
+    // check if the nodes are in the graph
     if (containsNode(u) && containsNode(v)) {
+        // check if the edges does not yet already exist.
         if (!hasEdge(u, v)) {
+            // add the edge object to the list.
             edges.emplace_back(edge(u, v));
+            // add the reference to the other node in the node's adjacency vector.
             nodes[u].addEdge(nodes[v]);
             nodes[v].addEdge(nodes[u]);
         }
@@ -43,11 +51,14 @@ void graph::addEdge(int u, int v) {
 }
 
 void graph::removeEdge(int u, int v) {
+    // check if there is an edge to remove
     if (hasEdge(u, v)) {
         node a = getNode(u);
         node b = getNode(v);
+        // remove the node from the other's adjacency vector
         a.removeEdge(v);
         b.removeEdge(u);
+        // remove the edge from the edge vector.
         edges.erase(std::remove_if(edges.begin(), edges.end(), [&u, &v](const edge &a) {
                         return (a.getU() == u && a.getV() == v) || (a.getU() == v && a.getV() == u);
                     }),
