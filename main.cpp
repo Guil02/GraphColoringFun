@@ -6,7 +6,8 @@
 
 int main() {
     graph g = randomGraph::generate(100, 0.2);
-    g.print();
+//    g.print();
+    g.adjacencyListPrint();
 
     greedy::calculateColoring(g);
     std::vector<int> coloring = g.getColoring();

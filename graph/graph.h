@@ -44,6 +44,8 @@ public:
     std::vector<int> getColoring();
 
     void print();
+
+    void adjacencyListPrint();
 };
 
 

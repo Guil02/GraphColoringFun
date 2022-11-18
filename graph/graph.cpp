@@ -111,4 +111,21 @@ void graph::print() {
 
 }
 
+void graph::adjacencyListPrint() {
+    for (int i = 0; i < nodes.size(); ++i) {
+        for (int j = 0; j < nodes.size(); ++j) {
+            if (hasEdge(i, j)) {
+                std::cout << 1;
+            } else {
+                std::cout << 0;
+            }
+
+            if (j != nodes.size() - 1) {
+                std::cout << ",";
+            }
+        }
+        std::cout << "\n";
+    }
+}
+
 
