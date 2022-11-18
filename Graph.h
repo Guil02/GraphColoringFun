@@ -21,10 +21,25 @@ public:
 
     void addNode();
 
+    void removeNode(int id);
+
+    void removeNode(Node n);
+
     void addEdge(int u, int v);
 
+    void removeEdge(int u, int v);
+
+    void removeEdge(Edge e);
+
     bool containsNode(int id);
+
     bool containsNode(Node n);
+
+    Node getNode(int id);
+
+    bool hasEdge(int u, int v);
+
+    bool hasEdge(Edge e);
 };
 
 
