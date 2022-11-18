@@ -2,15 +2,15 @@
 // Created by Dennis Bams on 18/11/2022.
 //
 
-#include "Greedy.h"
+#include "greedy.h"
 
-void Greedy::calculateColoring(Graph &g) {
-    for (Node &n: g.nodes) {
+void greedy::calculateColoring(graph &g) {
+    for (node &n: g.nodes) {
         assignColor(n);
     }
 }
 
-void Greedy::assignColor(Node &n) {
+void greedy::assignColor(node &n) {
     int color = 1;
     std::vector<int> adjacentColors = n.adjacentColors();
     while (std::find_if(adjacentColors.begin(), adjacentColors.end(), [&color](int a) { return color == a; }) !=

@@ -6,40 +6,40 @@
 #define GRAPHCOLORING_GRAPH_H
 
 #include <vector>
-#include "Node.h"
-#include "Edge.h"
+#include "node.h"
+#include "edge.h"
 
-class Graph {
+class graph {
 public:
-    std::vector<Node> nodes;
-    std::vector<Edge> edges;
+    std::vector<node> nodes;
+    std::vector<edge> edges;
     int counter;
 
-    Graph();
+    graph();
 
-    explicit Graph(int nodes);
+    explicit graph(int nodes);
 
     void addNode();
 
     void removeNode(int id);
 
-    void removeNode(Node n);
+    void removeNode(node n);
 
     void addEdge(int u, int v);
 
     void removeEdge(int u, int v);
 
-    void removeEdge(Edge e);
+    void removeEdge(edge e);
 
     bool containsNode(int id);
 
-    bool containsNode(Node n);
+    bool containsNode(node n);
 
-    Node getNode(int id);
+    node getNode(int id);
 
     bool hasEdge(int u, int v);
 
-    bool hasEdge(Edge e);
+    bool hasEdge(edge e);
 
     std::vector<int> getColoring();
 };

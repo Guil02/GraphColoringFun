@@ -6,14 +6,14 @@
 #define GRAPHCOLORING_GREEDY_H
 
 #include <vector>
-#include "../graph/Graph.h"
+#include "../graph/graph.h"
 
 
-class Greedy {
+class greedy {
 public:
-    static void calculateColoring(Graph &g);
+    static void calculateColoring(graph &g);
 
-    static void assignColor(Node &n);
+    static void assignColor(node &n);
 };
 
 

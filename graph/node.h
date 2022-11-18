@@ -6,25 +6,25 @@
 #define GRAPHCOLORING_NODE_H
 
 #include "vector"
-#include "Edge.h"
+#include "edge.h"
 
-class Node {
+class node {
 public:
-    std::vector<std::reference_wrapper<Node>> adjacent;
+    std::vector<std::reference_wrapper<node>> adjacent;
     int color = 0;
     int id;
 
-    explicit Node(int id);
+    explicit node(int id);
 
-    void addEdge(Node &n);
+    void addEdge(node &n);
 
-    void removeEdge(Node n);
+    void removeEdge(node n);
 
     void removeEdge(int u);
 
     void removeColor();
 
-    const std::vector<std::reference_wrapper<Node>> &getAdjacent() const;
+    const std::vector<std::reference_wrapper<node>> &getAdjacent() const;
 
     int getColor() const;
 
@@ -32,7 +32,7 @@ public:
 
     int getId() const;
 
-    friend bool operator==(const Node &lhs, const Node &rhs);
+    friend bool operator==(const node &lhs, const node &rhs);
 
     std::vector<int> adjacentColors();
 };

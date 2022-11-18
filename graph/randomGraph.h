@@ -6,12 +6,12 @@
 #define GRAPHCOLORING_RANDOMGRAPH_H
 
 
-#include "Graph.h"
+#include "graph.h"
 
-class RandomGraph {
+class randomGraph {
 
 public:
-    static Graph randomGraph(int nodes, int edgeProbability);
+    static graph randomGraph(int nodes, int edgeProbability);
 };
 
 

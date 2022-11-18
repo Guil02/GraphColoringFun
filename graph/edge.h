@@ -6,12 +6,12 @@
 #define GRAPHCOLORING_EDGE_H
 
 
-class Edge {
+class edge {
 public:
     int u;
     int v;
 
-    Edge(int u, int v);
+    edge(int u, int v);
 
     int getU() const;
 
@@ -21,7 +21,7 @@ public:
 
     void setV(int v);
 
-    friend bool operator==(const Edge &lhs, const Edge &rhs);
+    friend bool operator==(const edge &lhs, const edge &rhs);
 };
 
 

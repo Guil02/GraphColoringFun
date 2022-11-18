@@ -3,4 +3,4 @@ project(GraphColoring)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(GraphColoring main.cpp graph/Graph.cpp graph/Graph.h graph/Node.cpp graph/Node.h graph/Edge.cpp graph/Edge.h algorithms/Greedy.cpp algorithms/Greedy.h graph/RandomGraph.cpp graph/RandomGraph.h)
+add_executable(GraphColoring main.cpp graph/graph.cpp graph/graph.h graph/node.cpp graph/node.h graph/edge.cpp graph/edge.h algorithms/greedy.cpp algorithms/greedy.h graph/randomGraph.cpp graph/randomGraph.h)
