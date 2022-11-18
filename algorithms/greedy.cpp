@@ -19,3 +19,10 @@ void greedy::assignColor(node &n) {
     }
     n.setColor(color);
 }
+
+int greedy::maxColor(graph &g) {
+    calculateColoring(g);
+    std::vector<int> coloring = g.getColoring();
+    auto it = std::max_element(coloring.begin(), coloring.end());
+    return it[0];
+}

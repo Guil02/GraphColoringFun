@@ -24,7 +24,7 @@ public:
 
     void removeColor();
 
-    const std::vector<std::reference_wrapper<node>> &getAdjacent() const;
+    std::vector<std::reference_wrapper<node>> &getAdjacent();
 
     int getColor() const;
 

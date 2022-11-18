@@ -21,7 +21,7 @@ void node::removeEdge(node n) {
                    adjacent.end());
 }
 
-const std::vector<std::reference_wrapper<node>> &node::getAdjacent() const {
+std::vector<std::reference_wrapper<node>> &node::getAdjacent() {
     return adjacent;
 }
 

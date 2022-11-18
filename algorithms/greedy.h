@@ -14,6 +14,8 @@ public:
     static void calculateColoring(graph &g);
 
     static void assignColor(node &n);
+
+    static int maxColor(graph &g);
 };
 
 
