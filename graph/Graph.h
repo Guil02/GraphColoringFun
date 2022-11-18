@@ -40,6 +40,8 @@ public:
     bool hasEdge(int u, int v);
 
     bool hasEdge(Edge e);
+
+    std::vector<int> getColoring();
 };
 
 

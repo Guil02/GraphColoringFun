@@ -12,8 +12,8 @@ bool operator==(const Node &lhs, const Node &rhs) {
     return lhs.id == rhs.id;
 }
 
-void Node::addEdge(const Node &n) {
-    adjacent.emplace_back(n);
+void Node::addEdge(Node &n) {
+    adjacent.emplace_back(std::reference_wrapper<Node>(n));
 }
 
 void Node::removeEdge(Node n) {
@@ -21,7 +21,7 @@ void Node::removeEdge(Node n) {
                    adjacent.end());
 }
 
-const std::vector<Node> &Node::getAdjacent() const {
+const std::vector<std::reference_wrapper<Node>> &Node::getAdjacent() const {
     return adjacent;
 }
 
@@ -44,6 +44,14 @@ void Node::removeEdge(int u) {
 
 int Node::getId() const {
     return id;
+}
+
+std::vector<int> Node::adjacentColors() {
+    std::vector<int> adjacentColors;
+    for (Node &n: adjacent) {
+        adjacentColors.emplace_back(n.color);
+    }
+    return adjacentColors;
 }
 
 

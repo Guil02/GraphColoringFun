@@ -10,13 +10,13 @@
 
 class Node {
 public:
-    std::vector<Node> adjacent;
+    std::vector<std::reference_wrapper<Node>> adjacent;
     int color = 0;
     int id;
 
     explicit Node(int id);
 
-    void addEdge(const Node &n);
+    void addEdge(Node &n);
 
     void removeEdge(Node n);
 
@@ -24,7 +24,7 @@ public:
 
     void removeColor();
 
-    const std::vector<Node> &getAdjacent() const;
+    const std::vector<std::reference_wrapper<Node>> &getAdjacent() const;
 
     int getColor() const;
 
@@ -33,6 +33,8 @@ public:
     int getId() const;
 
     friend bool operator==(const Node &lhs, const Node &rhs);
+
+    std::vector<int> adjacentColors();
 };
 
 

@@ -33,10 +33,8 @@ void Graph::addEdge(int u, int v) {
     if (containsNode(u) && containsNode(v)) {
         if (!hasEdge(u, v)) {
             edges.emplace_back(Edge(u, v));
-            Node a = getNode(u);
-            Node b = getNode(v);
-            a.addEdge(b);
-            b.addEdge(a);
+            nodes[u].addEdge(nodes[v]);
+            nodes[v].addEdge(nodes[u]);
         }
     } else {
         throw std::invalid_argument("One of the two nodes was not available in the graph");
@@ -90,6 +88,14 @@ Node Graph::getNode(int id) {
     } else {
         throw std::invalid_argument("Node was not available in the graph");
     }
+}
+
+std::vector<int> Graph::getColoring() {
+    std::vector<int> coloring;
+    for (const Node &n: nodes) {
+        coloring.emplace_back(n.color);
+    }
+    return coloring;
 }
 
 
