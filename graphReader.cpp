@@ -16,7 +16,6 @@ graph graphReader::readInGraph(std::string filePath) {
     while (std::getline(infile, line)) {
 //        std::istringstream iss(line);
         std::vector<std::string> splitLine = split(line, ' ');
-        std::cout << splitLine[0] << "\n";
         if (splitLine[0] == "VERTICES") {
             g.addNodes(std::stoi(splitLine[2]));
         } else if (splitLine[0] == "EDGES") {
