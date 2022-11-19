@@ -22,6 +22,12 @@ void graph::addNode() {
     nodes.emplace_back(node(counter++));
 }
 
+void graph::addNodes(int nodes) {
+    for (int i = 0; i < nodes; ++i) {
+        addNode();
+    }
+}
+
 void graph::removeNode(int id) {
     // search if the node exist in the vector then remove it.
     nodes.erase(std::remove_if(nodes.begin(), nodes.end(), [&id](const node &a) { return a.id == id; }),

@@ -21,6 +21,8 @@ public:
 
     void addNode();
 
+    void addNodes(int nodes);
+
     void removeNode(int id);
 
     void removeNode(node n);
